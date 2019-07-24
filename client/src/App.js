@@ -8,6 +8,7 @@ const App = () => {
   const [savedList, setSavedList] = useState( [] );
 
   const addToSavedList = movie => {
+    console.log(movie);
     setSavedList( [...savedList, movie] );
   };
 
@@ -15,7 +16,12 @@ const App = () => {
     <div>
       <SavedList list={savedList} />
       <Route exact path="/" component={MovieList} />
-      <Route path="/movies/:crumpet" component={Movie} />
+      <Route path="/movies/:id" 
+             render={props => <Movie 
+                              addToSavedList={addToSavedList}
+                              {...props}
+                              />}
+      />
     </div>
   );
 };
