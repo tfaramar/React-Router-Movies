@@ -5,7 +5,8 @@ const Movie = (props) => {
   const [movie, setMovie] = useState({});
  
   useEffect(() => {
-    const id = Number(props.match.params.id);
+    console.log(props);
+    const id = Number(props.match.params.crumpet);
     // change ^^^ that line and grab the id from the URL
     // You will NEED to add a dependency array to this effect hook
 
@@ -26,7 +27,7 @@ const Movie = (props) => {
   //   addToSavedList(movie)
   // }
 
-  if (!movie) {
+  if (Object.keys(movie).length === 0) {
     return <div>Loading movie information...</div>;
   }
 
